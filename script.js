@@ -32,7 +32,8 @@ const TIME_SLOTS = getTimeSlots();
 
 // DOM 로드 완료 후 초기화
 document.addEventListener('DOMContentLoaded', function() {
-    currentDate = new Date(); // 항상 오늘로
+    // 항상 오늘 날짜로 초기화
+    currentDate = new Date();
     initializeApp();
 });
 
@@ -141,14 +142,19 @@ function renderTimeSlots(container, page, room, dateStr) {
             slot.classList.add('reserved');
             slot.title = `예약자: ${reservation.이름}\n인원: ${reservation.인원}명\n담당교사: ${reservation.담당교사}`;
         } else {
-            // 과거 시간은 비활성화
-            const slotTime = new Date();
-            const [hour, minute] = start.split(':');
-            slotTime.setHours(parseInt(hour), parseInt(minute), 0, 0);
+            // 과거 시간은 비활성화 (오늘 날짜인 경우에만)
+            const today = new Date();
+            const isToday = currentDate.toDateString() === today.toDateString();
             
-            if (currentDate.toDateString() === new Date().toDateString() && slotTime < new Date()) {
-                slot.classList.add('disabled');
-                slot.disabled = true;
+            if (isToday) {
+                const slotTime = new Date();
+                const [hour, minute] = start.split(':');
+                slotTime.setHours(parseInt(hour), parseInt(minute), 0, 0);
+                
+                if (slotTime < today) {
+                    slot.classList.add('disabled');
+                    slot.disabled = true;
+                }
             }
         }
         
@@ -392,4 +398,4 @@ window.addEventListener('load', () => {
             showToast('예약 데이터 로드에 실패했습니다.', 'error');
         }
     }
-}); 
+});
