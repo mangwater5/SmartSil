@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스마트실 대여 시스템</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 헤더 -->
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-building"></i> 스마트실 대여 시스템</h1>
+                <div class="date-selector">
+                    <button id="prevDate" class="date-btn"><i class="fas fa-chevron-left"></i></button>
+                    <input type="date" id="datePicker" class="date-input">
+                    <button id="nextDate" class="date-btn"><i class="fas fa-chevron-right"></i></button>
+                    <button id="todayBtn" class="today-btn">오늘</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- 네비게이션 탭 -->
+        <nav class="nav-tabs">
+            <button class="tab-btn active" data-page="0">
+                <i class="fas fa-flask"></i> 2층 창의융합관
+            </button>
+            <button class="tab-btn" data-page="1">
+                <i class="fas fa-video"></i> 3층 창의융합관
+            </button>
+            <button class="tab-btn" data-page="2">
+                <i class="fas fa-graduation-cap"></i> 4층 창의융합관
+            </button>
+            <button class="tab-btn" data-page="3">
+                <i class="fas fa-robot"></i> 별관
+            </button>
+        </nav>
+
+        <!-- 메인 콘텐츠 -->
+        <main class="main-content">
+            <div class="page-container">
+                <!-- 2층 창의융합관 -->
+                <div class="page active" id="page-0">
+                    <div class="room-grid">
+                        <div class="room-card" data-room="지능형 과학실">
+                            <div class="room-header">
+                                <i class="fas fa-flask"></i>
+                                <h3>지능형 과학실</h3>
+                            </div>
+                            <div class="time-slots" data-page="0" data-room="지능형 과학실"></div>
+                        </div>
+                        <div class="room-card" data-room="융합 과학실">
+                            <div class="room-header">
+                                <i class="fas fa-microscope"></i>
+                                <h3>융합 과학실</h3>
+                            </div>
+                            <div class="time-slots" data-page="0" data-room="융합 과학실"></div>
+                        </div>
+                        <div class="room-card" data-room="과학 카페">
+                            <div class="room-header">
+                                <i class="fas fa-coffee"></i>
+                                <h3>과학 카페</h3>
+                            </div>
+                            <div class="time-slots" data-page="0" data-room="과학 카페"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3층 창의융합관 -->
+                <div class="page" id="page-1">
+                    <div class="room-grid">
+                        <div class="room-card" data-room="줌인 센터">
+                            <div class="room-header">
+                                <i class="fas fa-video"></i>
+                                <h3>줌인 센터</h3>
+                            </div>
+                            <div class="time-slots" data-page="1" data-room="줌인 센터"></div>
+                        </div>
+                        <div class="room-card" data-room="멀티미디어룸">
+                            <div class="room-header">
+                                <i class="fas fa-laptop"></i>
+                                <h3>멀티미디어룸</h3>
+                            </div>
+                            <div class="time-slots" data-page="1" data-room="멀티미디어룸"></div>
+                        </div>
+                        <div class="room-card" data-room="블렌디드룸">
+                            <div class="room-header">
+                                <i class="fas fa-desktop"></i>
+                                <h3>블렌디드룸</h3>
+                            </div>
+                            <div class="time-slots" data-page="1" data-room="블렌디드룸"></div>
+                        </div>
+                        <div class="room-card" data-room="책숲">
+                            <div class="room-header">
+                                <i class="fas fa-book"></i>
+                                <h3>책숲</h3>
+                            </div>
+                            <div class="time-slots" data-page="1" data-room="책숲"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4층 창의융합관 -->
+                <div class="page" id="page-2">
+                    <div class="room-grid">
+                        <div class="room-card" data-room="진로커리어존">
+                            <div class="room-header">
+                                <i class="fas fa-compass"></i>
+                                <h3>진로커리어존</h3>
+                            </div>
+                            <div class="time-slots" data-page="2" data-room="진로커리어존"></div>
+                        </div>
+                        <div class="room-card" data-room="소강의실 1">
+                            <div class="room-header">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                                <h3>소강의실 1</h3>
+                            </div>
+                            <div class="time-slots" data-page="2" data-room="소강의실 1"></div>
+                        </div>
+                        <div class="room-card" data-room="소강의실 2">
+                            <div class="room-header">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                                <h3>소강의실 2</h3>
+                            </div>
+                            <div class="time-slots" data-page="2" data-room="소강의실 2"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 별관 -->
+                <div class="page" id="page-3">
+                    <div class="room-grid">
+                        <div class="room-card" data-room="ai실">
+                            <div class="room-header">
+                                <i class="fas fa-robot"></i>
+                                <h3>ai실</h3>
+                            </div>
+                            <div class="time-slots" data-page="3" data-room="ai실"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 예약 모달 -->
+    <div id="reservationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-calendar-plus"></i> 예약 정보 입력</h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <form id="reservationForm">
+                <div class="form-group">
+                    <label for="reservationName">예약자 이름</label>
+                    <input type="text" id="reservationName" required>
+                </div>
+                <div class="form-group">
+                    <label for="reservationPeople">사용 인원</label>
+                    <input type="number" id="reservationPeople" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="reservationTeacher">담당 교사</label>
+                    <input type="text" id="reservationTeacher" required>
+                </div>
+                <div class="form-group">
+                    <label for="reservationPassword">비밀번호 (숫자 4자리)</label>
+                    <input type="password" id="reservationPassword" pattern="[0-9]{4}" maxlength="4" required>
+                </div>
+                <div class="form-group checkbox-group">
+                    <label>
+                        <input type="checkbox" id="teacherAgreement" required>
+                        담당 교사 동의 받음
+                    </label>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">예약 저장</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">취소</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 비밀번호 확인 모달 -->
+    <div id="passwordModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-trash"></i> 예약 삭제</h2>
+                <button class="close-btn" onclick="closePasswordModal()">&times;</button>
+            </div>
+            <form id="passwordForm">
+                <div class="form-group">
+                    <label for="deletePassword">비밀번호 (숫자 4자리)</label>
+                    <input type="password" id="deletePassword" pattern="[0-9]{4}" maxlength="4" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-danger">삭제</button>
+                    <button type="button" class="btn btn-secondary" onclick="closePasswordModal()">취소</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 알림 토스트 -->
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
