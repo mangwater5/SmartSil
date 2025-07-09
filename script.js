@@ -1,4 +1,4 @@
-// 전역 변수
+// 전역 변수 - 항상 오늘 날짜로 초기화
 let currentDate = new Date();
 let reservations = JSON.parse(localStorage.getItem('reservations')) || {};
 let currentReservation = null;
@@ -30,18 +30,31 @@ function getTimeSlots() {
 
 const TIME_SLOTS = getTimeSlots();
 
-// DOM 로드 완료 후 초기화
-document.addEventListener('DOMContentLoaded', function() {
-    // 항상 오늘 날짜로 초기화
+// 페이지 로드 시 즉시 실행
+window.addEventListener('load', function() {
+    console.log('페이지 로드됨 - 오늘 날짜로 초기화');
+    // 강제로 오늘 날짜로 설정
     currentDate = new Date();
     initializeApp();
 });
 
+// DOM 로드 완료 후 초기화 (백업)
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM 로드됨 - 오늘 날짜로 초기화');
+    // 강제로 오늘 날짜로 설정
+    currentDate = new Date();
+    if (!document.getElementById('datePicker').value) {
+        initializeApp();
+    }
+});
+
 // 앱 초기화
 function initializeApp() {
+    console.log('앱 초기화 시작');
     setToday();
     setupEventListeners();
     renderAllPages();
+    console.log('앱 초기화 완료 - 현재 날짜:', currentDate.toISOString().split('T')[0]);
 }
 
 // 이벤트 리스너 설정
@@ -51,19 +64,25 @@ function setupEventListeners() {
         currentDate.setDate(currentDate.getDate() - 1);
         updateDateDisplay();
         renderAllPages();
+        console.log('이전 날짜로 변경:', currentDate.toISOString().split('T')[0]);
     });
 
     document.getElementById('nextDate').addEventListener('click', () => {
         currentDate.setDate(currentDate.getDate() + 1);
         updateDateDisplay();
         renderAllPages();
+        console.log('다음 날짜로 변경:', currentDate.toISOString().split('T')[0]);
     });
 
-    document.getElementById('todayBtn').addEventListener('click', setToday);
+    document.getElementById('todayBtn').addEventListener('click', () => {
+        console.log('오늘 버튼 클릭됨');
+        setToday();
+    });
 
     document.getElementById('datePicker').addEventListener('change', (e) => {
         currentDate = new Date(e.target.value);
         renderAllPages();
+        console.log('날짜 선택기 변경:', currentDate.toISOString().split('T')[0]);
     });
 
     // 탭 전환
@@ -87,17 +106,21 @@ function setupEventListeners() {
     });
 }
 
-// 오늘 날짜 설정
+// 오늘 날짜 설정 - 강제로 오늘로 설정
 function setToday() {
+    console.log('setToday() 호출됨');
     currentDate = new Date();
     updateDateDisplay();
     renderAllPages();
+    console.log('오늘 날짜로 설정 완료:', currentDate.toISOString().split('T')[0]);
 }
 
 // 날짜 표시 업데이트
 function updateDateDisplay() {
     const datePicker = document.getElementById('datePicker');
-    datePicker.value = currentDate.toISOString().split('T')[0];
+    const todayString = currentDate.toISOString().split('T')[0];
+    datePicker.value = todayString;
+    console.log('날짜 표시 업데이트:', todayString);
 }
 
 // 페이지 전환
@@ -118,6 +141,7 @@ function switchPage(pageIndex) {
 // 모든 페이지 렌더링
 function renderAllPages() {
     const dateStr = currentDate.toISOString().split('T')[0];
+    console.log('모든 페이지 렌더링 - 날짜:', dateStr);
     
     document.querySelectorAll('.time-slots').forEach(container => {
         const page = container.dataset.page;
@@ -399,3 +423,11 @@ window.addEventListener('load', () => {
         }
     }
 });
+
+// 강제로 오늘 날짜 설정 (마지막 보장)
+setTimeout(() => {
+    if (currentDate.toDateString() !== new Date().toDateString()) {
+        console.log('날짜 불일치 감지 - 강제 수정');
+        setToday();
+    }
+}, 100);
