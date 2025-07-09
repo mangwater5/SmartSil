@@ -32,6 +32,7 @@ const TIME_SLOTS = getTimeSlots();
 
 // DOM 로드 완료 후 초기화
 document.addEventListener('DOMContentLoaded', function() {
+    currentDate = new Date(); // 항상 오늘로
     initializeApp();
 });
 
