@@ -7,25 +7,26 @@
 
 body {
     font-family: 'Noto Sans KR', sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: #f8fafc;
     min-height: 100vh;
-    color: #333;
+    color: #1e293b;
+    line-height: 1.6;
 }
 
 .container {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
 /* 헤더 */
 .header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 20px;
-    padding: 20px 30px;
-    margin-bottom: 20px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
 }
 
 .header-content {
@@ -37,112 +38,124 @@ body {
 }
 
 .header h1 {
-    color: white;
-    font-size: 28px;
-    font-weight: 700;
+    color: #1e293b;
+    font-size: 24px;
+    font-weight: 600;
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
+.header h1 i {
+    color: #3b82f6;
+}
+
 .date-selector {
     display: flex;
     align-items: center;
-    gap: 10px;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 10px 15px;
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
+    gap: 8px;
+    background: #f8fafc;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
 }
 
 .date-btn {
-    background: rgba(255, 255, 255, 0.3);
-    border: none;
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    color: #6b7280;
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .date-btn:hover {
-    background: rgba(255, 255, 255, 0.4);
-    transform: scale(1.05);
+    background: #f3f4f6;
+    border-color: #9ca3af;
 }
 
 .date-input {
-    background: rgba(255, 255, 255, 0.9);
-    border: none;
-    padding: 10px 15px;
-    border-radius: 10px;
-    font-size: 16px;
-    color: #333;
-    min-width: 150px;
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #374151;
+    min-width: 140px;
+}
+
+.date-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
 .today-btn {
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    background: #3b82f6;
     border: none;
     color: white;
-    padding: 10px 20px;
-    border-radius: 10px;
+    padding: 8px 16px;
+    border-radius: 6px;
     cursor: pointer;
     font-weight: 500;
-    transition: all 0.3s ease;
+    font-size: 14px;
+    transition: all 0.2s ease;
 }
 
 .today-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background: #2563eb;
 }
 
 /* 네비게이션 탭 */
 .nav-tabs {
     display: flex;
-    gap: 10px;
-    margin-bottom: 30px;
+    gap: 8px;
+    margin-bottom: 24px;
     flex-wrap: wrap;
 }
 
 .tab-btn {
-    background: rgba(255, 255, 255, 0.8);
-    border: none;
-    padding: 15px 25px;
-    border-radius: 15px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 12px 20px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
-    color: #666;
-    transition: all 0.3s ease;
+    color: #64748b;
+    transition: all 0.2s ease;
     display: flex;
     align-items: center;
     gap: 8px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .tab-btn:hover {
-    background: rgba(255, 255, 255, 0.9);
-    transform: translateY(-2px);
+    background: #f8fafc;
+    border-color: #cbd5e1;
 }
 
 .tab-btn.active {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #3b82f6;
     color: white;
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    border-color: #3b82f6;
+}
+
+.tab-btn i {
+    font-size: 16px;
 }
 
 /* 메인 콘텐츠 */
 .main-content {
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
 }
 
 .page {
@@ -155,95 +168,113 @@ body {
 
 .room-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
 }
 
 .room-card {
-    background: white;
-    border-radius: 20px;
-    padding: 25px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s ease;
 }
 
 .room-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .room-header {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 2px solid #f0f0f0;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f1f5f9;
 }
 
 .room-header i {
-    font-size: 24px;
-    color: #667eea;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-size: 20px;
+    color: #3b82f6;
 }
 
 .room-header h3 {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
-    color: #333;
+    color: #1e293b;
 }
 
 /* 시간 슬롯 */
 .time-slots {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 8px;
 }
 
 .time-slot {
-    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-    border: none;
-    padding: 12px 8px;
-    border-radius: 12px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 10px 8px;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
-    color: #333;
-    transition: all 0.3s ease;
+    color: #374151;
+    transition: all 0.2s ease;
     text-align: center;
     position: relative;
-    overflow: hidden;
+    min-height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .time-slot:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background: #f1f5f9;
+    border-color: #cbd5e1;
 }
 
 .time-slot.reserved {
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-    color: white;
+    background: #fef2f2;
+    border-color: #fecaca;
+    color: #dc2626;
     cursor: pointer;
 }
 
 .time-slot.reserved:hover {
-    background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+    background: #fee2e2;
 }
 
 .time-slot.disabled {
-    background: #e0e0e0;
-    color: #999;
+    background: #f1f5f9;
+    color: #94a3b8;
     cursor: not-allowed;
-    transform: none;
+    border-color: #e2e8f0;
 }
 
 .time-slot.disabled:hover {
-    transform: none;
-    box-shadow: none;
+    background: #f1f5f9;
+}
+
+/* 예약된 슬롯 내부 스타일 */
+.slot-time {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.slot-reserver {
+    font-size: 11px;
+    font-weight: 500;
+    color: #dc2626;
+    background: #fecaca;
+    padding: 2px 6px;
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
 }
 
 /* 모달 */
@@ -256,24 +287,24 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(4px);
 }
 
 .modal-content {
     background: white;
     margin: 5% auto;
     padding: 0;
-    border-radius: 20px;
+    border-radius: 12px;
     width: 90%;
-    max-width: 500px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 480px;
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
     animation: modalSlideIn 0.3s ease;
 }
 
 @keyframes modalSlideIn {
     from {
         opacity: 0;
-        transform: translateY(-50px);
+        transform: translateY(-20px);
     }
     to {
         opacity: 1;
@@ -282,37 +313,37 @@ body {
 }
 
 .modal-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #3b82f6;
     color: white;
-    padding: 25px 30px;
-    border-radius: 20px 20px 0 0;
+    padding: 20px 24px;
+    border-radius: 12px 12px 0 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .modal-header h2 {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .close-btn {
     background: none;
     border: none;
     color: white;
-    font-size: 28px;
+    font-size: 24px;
     cursor: pointer;
     padding: 0;
-    width: 30px;
-    height: 30px;
+    width: 24px;
+    height: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    transition: all 0.3s ease;
+    border-radius: 4px;
+    transition: all 0.2s ease;
 }
 
 .close-btn:hover {
@@ -321,105 +352,103 @@ body {
 
 /* 폼 스타일 */
 form {
-    padding: 30px;
+    padding: 24px;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     font-weight: 500;
-    color: #333;
-    font-size: 16px;
+    color: #374151;
+    font-size: 14px;
 }
 
 .form-group input[type="text"],
 .form-group input[type="number"],
 .form-group input[type="password"] {
     width: 100%;
-    padding: 12px 15px;
-    border: 2px solid #e0e0e0;
-    border-radius: 12px;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    background: #f8f9fa;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    background: #ffffff;
 }
 
 .form-group input:focus {
     outline: none;
-    border-color: #667eea;
-    background: white;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
 .checkbox-group {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .checkbox-group label {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     cursor: pointer;
     margin-bottom: 0;
+    font-size: 14px;
 }
 
 .checkbox-group input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-    accent-color: #667eea;
+    width: 16px;
+    height: 16px;
+    accent-color: #3b82f6;
 }
 
 .form-actions {
     display: flex;
-    gap: 15px;
-    margin-top: 30px;
+    gap: 12px;
+    margin-top: 24px;
 }
 
 .btn {
-    padding: 12px 25px;
+    padding: 10px 20px;
     border: none;
-    border-radius: 12px;
-    font-size: 16px;
+    border-radius: 6px;
+    font-size: 14px;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     flex: 1;
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #3b82f6;
     color: white;
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    background: #2563eb;
 }
 
 .btn-secondary {
-    background: #e0e0e0;
-    color: #666;
+    background: #f3f4f6;
+    color: #374151;
+    border: 1px solid #d1d5db;
 }
 
 .btn-secondary:hover {
-    background: #d0d0d0;
-    transform: translateY(-2px);
+    background: #e5e7eb;
 }
 
 .btn-danger {
-    background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+    background: #dc2626;
     color: white;
 }
 
 .btn-danger:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+    background: #b91c1c;
 }
 
 /* 토스트 알림 */
@@ -427,26 +456,39 @@ form {
     position: fixed;
     top: 20px;
     right: 20px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #3b82f6;
     color: white;
-    padding: 15px 25px;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1001;
     transform: translateX(400px);
     transition: transform 0.3s ease;
     max-width: 300px;
     font-weight: 500;
+    font-size: 14px;
 }
 
 .toast.show {
     transform: translateX(0);
 }
 
+.toast.error {
+    background: #dc2626;
+}
+
+.toast.success {
+    background: #059669;
+}
+
+.toast.warning {
+    background: #d97706;
+}
+
 /* 반응형 디자인 */
 @media (max-width: 768px) {
     .container {
-        padding: 10px;
+        padding: 16px;
     }
     
     .header-content {
@@ -464,8 +506,8 @@ form {
     }
     
     .tab-btn {
-        padding: 12px 20px;
-        font-size: 14px;
+        padding: 10px 16px;
+        font-size: 13px;
     }
     
     .room-grid {
@@ -473,7 +515,7 @@ form {
     }
     
     .time-slots {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     }
     
     .modal-content {
@@ -488,15 +530,24 @@ form {
 
 @media (max-width: 480px) {
     .header h1 {
-        font-size: 24px;
+        font-size: 20px;
     }
     
     .room-card {
-        padding: 20px;
+        padding: 16px;
     }
     
     .time-slot {
-        padding: 10px 6px;
+        padding: 8px 6px;
         font-size: 12px;
+        min-height: 50px;
     }
-} 
+    
+    .slot-time {
+        font-size: 11px;
+    }
+    
+    .slot-reserver {
+        font-size: 10px;
+    }
+}
