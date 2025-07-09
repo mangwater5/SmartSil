@@ -61,14 +61,18 @@ function initializeApp() {
 function setupEventListeners() {
     // 날짜 선택
     document.getElementById('prevDate').addEventListener('click', () => {
-        currentDate.setDate(currentDate.getDate() - 1);
+        const newDate = new Date(currentDate);
+        newDate.setDate(newDate.getDate() - 1);
+        currentDate = newDate;
         updateDateDisplay();
         renderAllPages();
         console.log('이전 날짜로 변경:', currentDate.toISOString().split('T')[0]);
     });
 
     document.getElementById('nextDate').addEventListener('click', () => {
-        currentDate.setDate(currentDate.getDate() + 1);
+        const newDate = new Date(currentDate);
+        newDate.setDate(newDate.getDate() + 1);
+        currentDate = newDate;
         updateDateDisplay();
         renderAllPages();
         console.log('다음 날짜로 변경:', currentDate.toISOString().split('T')[0]);
@@ -157,15 +161,22 @@ function renderTimeSlots(container, page, room, dateStr) {
     TIME_SLOTS.forEach(([start, end]) => {
         const slot = document.createElement('button');
         slot.className = 'time-slot';
-        slot.textContent = `${start}-${end}`;
         
         const reservationKey = `${dateStr}_${page}_${room}_${start}_${end}`;
         const reservation = reservations[reservationKey];
         
         if (reservation) {
+            // 예약된 슬롯 - 예약자 이름 표시
             slot.classList.add('reserved');
+            slot.innerHTML = `
+                <div class="slot-time">${start}-${end}</div>
+                <div class="slot-reserver">${reservation.이름}</div>
+            `;
             slot.title = `예약자: ${reservation.이름}\n인원: ${reservation.인원}명\n담당교사: ${reservation.담당교사}`;
         } else {
+            // 빈 슬롯
+            slot.textContent = `${start}-${end}`;
+            
             // 과거 시간은 비활성화 (오늘 날짜인 경우에만)
             const today = new Date();
             const isToday = currentDate.toDateString() === today.toDateString();
